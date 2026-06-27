@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Grid Tasks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    .box {
+      background: royalblue;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    /* Task 1 */
+    .task1 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* Task 2 */
+    .task2 {
+      width: 500px;
+      height: 300px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    /* Task 3 */
+    .task3 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    /* Task 4 */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery div {
+      height: 150px;
+      background: #ccc;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+    }
+
+    /* Task 5 */
+    .students {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .student-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .photo {
+      width: 80px;
+      height: 80px;
+      background: #bbb;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    /* Task 6 */
+    .task6 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 80px);
+      gap: 15px;
+    }
+
+    /* Task 7 */
+    .task7 {
+      display: grid;
+      grid-template-columns: 150px 2fr 1fr;
+      gap: 15px;
+    }
+
+    /* Task 8 */
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 250px;
+      gap: 20px;
+    }
+
+    .plan {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Task 9 */
+    .task9 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      row-gap: 20px;
+      column-gap: 30px;
+    }
+
+    /* Task 10 */
+    .task10 {
+      width: 600px;
+      height: 400px;
+      background: white;
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(2, 100px);
+      justify-content: center;
+      align-content: center;
+      justify-items: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Task 11 */
+    .task11 {
+      height: 250px;
+      background: white;
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-template-rows: repeat(2, 80px);
+      gap: 15px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    /* Task 12 */
+    .task12 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .span2 {
+      grid-column: span 2;
+    }
+
+    /* Task 13 */
+    .dashboard {
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      grid-template-rows: 80px 300px 70px;
+      gap: 15px;
+    }
+
+    .dash-header {
+      grid-column: 1 / 4;
+      background: #111;
+    }
+
+    .dash-sidebar {
+      grid-column: 1 / 2;
+      background: #333;
+    }
+
+    .dash-main {
+      grid-column: 2 / 4;
+      background: #555;
+    }
+
+    .dash-footer {
+      grid-column: 1 / 4;
+      background: #111;
+    }
+
+    /* Task 14 */
+    .magazine {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 150px;
+      gap: 15px;
+    }
+
+    .featured-article {
+      grid-column: span 2;
+      grid-row: span 2;
+      background: darkorange;
+    }
+
+    /* Task 15 */
+    .products-showcase {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .featured-product {
+      grid-column: span 2;
+      background: seagreen;
+    }
+
+    /* Task 16 */
+    .layout16 {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "sidebar main"
+        "sidebar main"
+        "footer footer";
+      grid-template-columns: 200px 1fr;
+      gap: 15px;
+    }
+
+    .header-area { grid-area: header; background: #111; }
+    .sidebar-area { grid-area: sidebar; background: #333; }
+    .main-area { grid-area: main; background: #555; }
+    .footer-area { grid-area: footer; background: #111; }
+
+    /* Task 17 */
+    .admin {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "menu content ads"
+        "menu content ads"
+        "footer footer footer";
+      grid-template-columns: 200px 1fr 200px;
+      gap: 15px;
+    }
+
+    .admin-header { grid-area: header; background: #111; }
+    .admin-menu { grid-area: menu; background: #333; }
+    .admin-content { grid-area: content; background: #555; }
+    .admin-ads { grid-area: ads; background: #777; }
+    .admin-footer { grid-area: footer; background: #111; }
+
+    /* Task 18 */
+    .blog {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "nav nav"
+        "main sidebar"
+        "footer footer";
+      grid-template-columns: 1fr 250px;
+      gap: 15px;
+    }
+
+    .blog-header { grid-area: header; background: #111; }
+    .blog-nav { grid-area: nav; background: #333; }
+    .blog-main { grid-area: main; background: #555; }
+    .blog-sidebar { grid-area: sidebar; background: #777; }
+    .blog-footer { grid-area: footer; background: #111; }
+
+    /* Task 19 */
+    .responsive-products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    /* Task 20 */
+    .ecommerce {
+      display: grid;
+      grid-template-areas:
+        "header header"
+        "nav nav"
+        "hero hero"
+        "categories categories"
+        "sidebar products"
+        "reviews reviews"
+        "footer footer";
+      grid-template-columns: 220px 1fr;
+      gap: 20px;
+    }
+
+    .eco-header { grid-area: header; background: #111; }
+    .eco-nav { grid-area: nav; background: #333; }
+    .eco-hero { grid-area: hero; background: darkorange; height: 250px; }
+    .eco-categories { grid-area: categories; background: white; }
+    .eco-sidebar { grid-area: sidebar; background: #ddd; }
+    .eco-products { 
+      grid-area: products;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .eco-reviews { grid-area: reviews; background: white; }
+    .eco-footer { grid-area: footer; background: #111; }
+
+    .eco-header,
+    .eco-nav,
+    .eco-hero,
+    .eco-categories,
+    .eco-sidebar,
+    .eco-reviews,
+    .eco-footer {
+      color: white;
+      padding: 25px;
+      border-radius: 10px;
+    }
+
+    .eco-categories,
+    .eco-reviews,
+    .eco-sidebar {
+      color: #111;
+    }
+
+    @media (max-width: 768px) {
+      .responsive-products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .students,
+      .pricing,
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .ecommerce {
+        grid-template-areas:
+          "header"
+          "nav"
+          "hero"
+          "categories"
+          "products"
+          "reviews"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+
+      .eco-sidebar {
+        display: none;
+      }
+
+      .eco-products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .responsive-products,
+      .students,
+      .pricing,
+      .gallery,
+      .eco-products {
+        grid-template-columns: 1fr;
+      }
+
+      .task2,
+      .task10 {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Task 1</h2>
+<div class="task1">
+  <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+  <div class="box">4</div><div class="box">5</div><div class="box">6</div>
+</div>
+
+<h2>Task 2</h2>
+<div class="task2">
+  <div class="box">1</div><div class="box">2</div>
+  <div class="box">3</div><div class="box">4</div>
+</div>
+
+<h2>Task 3</h2>
+<div class="task3">
+  <div class="box">1</div><div class="box">2</div><div class="box">3</div><div class="box">4</div>
+  <div class="box">5</div><div class="box">6</div><div class="box">7</div><div class="box">8</div>
+</div>
+
+<h2>Task 4</h2>
+<div class="gallery">
+  <div>Image 1</div><div>Image 2</div><div>Image 3</div>
+  <div>Image 4</div><div>Image 5</div><div>Image 6</div>
+  <div>Image 7</div><div>Image 8</div><div>Image 9</div>
+</div>
+
+<h2>Task 5</h2>
+<div class="students">
+  <div class="student-card"><div class="photo"></div><h3>Student 1</h3><p>AIML</p><p>101</p></div>
+  <div class="student-card"><div class="photo"></div><h3>Student 2</h3><p>CSE</p><p>102</p></div>
+  <div class="student-card"><div class="photo"></div><h3>Student 3</h3><p>ECE</p><p>103</p></div>
+  <div class="student-card"><div class="photo"></div><h3>Student 4</h3><p>IT</p><p>104</p></div>
+  <div class="student-card"><div class="photo"></div><h3>Student 5</h3><p>EEE</p><p>105</p></div>
+  <div class="student-card"><div class="photo"></div><h3>Student 6</h3><p>MECH</p><p>106</p></div>
+</div>
+
+<h2>Task 6</h2>
+<div class="task6">
+  <div class="box">1</div><div class="box">2</div><div class="box">3</div><div class="box">4</div>
+  <div class="box">5</div><div class="box">6</div><div class="box">7</div><div class="box">8</div>
+  <div class="box">9</div><div class="box">10</div><div class="box">11</div><div class="box">12</div>
+</div>
+
+<h2>Task 7</h2>
+<div class="task7">
+  <div class="box">150px</div>
+  <div class="box">2fr</div>
+  <div class="box">1fr</div>
+</div>
+
+<h2>Task 8</h2>
+<div class="pricing">
+  <div class="plan"><h3>Basic</h3><p>₹499</p></div>
+  <div class="plan"><h3>Standard</h3><p>₹999</p></div>
+  <div class="plan"><h3>Premium</h3><p>₹1499</p></div>
+</div>
+
+<h2>Task 9</h2>
+<div class="task9">
+  <div class="box">1</div><div class="box">2</div><div class="box">3</div><div class="box">4</div>
+  <div class="box">5</div><div class="box">6</div><div class="box">7</div><div class="box">8</div>
+  <div class="box">9</div><div class="box">10</div><div class="box">11</div><div class="box">12</div>
+</div>
+
+<h2>Task 10</h2>
+<div class="task10">
+  <div class="box">1</div><div class="box">2</div><div class="box">3</div>
+  <div class="box">4</div><div class="box">5</div><div class="box">6</div>
+</div>
+
+<h2>Task 11</h2>
+<div class="task11">
+  <div class="box">A</div><div class="box">B</div><div class="box">C</div>
+</div>
+
+<h2>Task 12</h2>
+<div class="task12">
+  <div class="box span2">Span 2 Columns</div>
+  <div class="box">2</div><div class="box">3</div>
+  <div class="box">4</div><div class="box">5</div>
+</div>
+
+<h2>Task 13</h2>
+<div class="dashboard">
+  <div class="box dash-header">Header</div>
+  <div class="box dash-sidebar">Sidebar</div>
+  <div class="box dash-main">Main Content</div>
+  <div class="box dash-footer">Footer</div>
+</div>
+
+<h2>Task 14</h2>
+<div class="magazine">
+  <div class="box featured-article">Featured Article</div>
+  <div class="box">Article 1</div>
+  <div class="box">Article 2</div>
+  <div class="box">Article 3</div>
+  <div class="box">Article 4</div>
+</div>
+
+<h2>Task 15</h2>
+<div class="products-showcase">
+  <div class="box featured-product">Featured Product</div>
+  <div class="box">Product 1</div>
+  <div class="box">Product 2</div>
+  <div class="box">Product 3</div>
+</div>
+
+<h2>Task 16</h2>
+<div class="layout16">
+  <div class="box header-area">Header</div>
+  <div class="box sidebar-area">Sidebar</div>
+  <div class="box main-area">Main</div>
+  <div class="box footer-area">Footer</div>
+</div>
+
+<h2>Task 17</h2>
+<div class="admin">
+  <div class="box admin-header">Header</div>
+  <div class="box admin-menu">Menu</div>
+  <div class="box admin-content">Content</div>
+  <div class="box admin-ads">Ads</div>
+  <div class="box admin-footer">Footer</div>
+</div>
+
+<h2>Task 18</h2>
+<div class="blog">
+  <div class="box blog-header">Header</div>
+  <div class="box blog-nav">Navigation</div>
+  <div class="box blog-main">Main Content</div>
+  <div class="box blog-sidebar">Sidebar</div>
+  <div class="box blog-footer">Footer</div>
+</div>
+
+<h2>Task 19</h2>
+<div class="responsive-products">
+  <div class="product-card">Product 1</div>
+  <div class="product-card">Product 2</div>
+  <div class="product-card">Product 3</div>
+  <div class="product-card">Product 4</div>
+</div>
+
+<h2>Task 20 E-Commerce Homepage</h2>
+<div class="ecommerce">
+  <div class="eco-header">Header</div>
+  <div class="eco-nav">Navigation Bar</div>
+  <div class="eco-hero">Hero Banner</div>
+  <div class="eco-categories">Categories Section</div>
+  <div class="eco-sidebar">Sidebar</div>
+
+  <div class="eco-products">
+    <div class="product-card">Product 1</div>
+    <div class="product-card">Product 2</div>
+    <div class="product-card">Product 3</div>
+    <div class="product-card">Product 4</div>
+    <div class="product-card">Product 5</div>
+    <div class="product-card">Product 6</div>
+  </div>
+
+  <div class="eco-reviews">Customer Reviews</div>
+  <div class="eco-footer">Footer</div>
+</div>
+
+</body>
+</html>
