@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Tasks 1-45</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial;background:#eef2f3;color:#222}
+    section{padding:30px;margin:20px;background:white;border-radius:12px}
+    h1,h2{color:#0b3d91;text-align:center}
+    p{color:#444;line-height:1.6}
+    img{max-width:100%}
+    .center{text-align:center}
+    .card{padding:20px;margin:15px;border:2px solid #ccc;border-radius:12px;background:#fafafa}
+    .btn{padding:12px 22px;border:0;border-radius:8px;background:#0b3d91;color:white;cursor:pointer}
+    .btn:hover{background:#06285f;transform:scale(1.05);box-shadow:0 5px 15px gray}
+
+    /* Module 1 */
+    .profile{max-width:400px;margin:auto;text-align:center;border:3px solid #0b3d91;background:#dff3ff}
+    .profile img{width:120px;border-radius:50%}
+    .resume div,.notice{border:1px solid #aaa;padding:15px;margin:10px;border-radius:10px;background:#f5f5f5}
+    .menu-item{padding:10px;margin:10px;background:#ffe8cc;border-radius:8px}
+    .menu-item:hover{background:#ffbf69;font-size:20px}
+    .product{width:280px;margin:auto;text-align:center;box-shadow:0 0 15px gray}
+    .urgent{background:#ffcccc!important;border-left:8px solid red}
+
+    /* Module 2 */
+    .info-container,.services,.employees,.testimonials,.footer,.gallery,.pricing-row{
+      display:flex;gap:20px;flex-wrap:wrap;justify-content:center
+    }
+    .info-card{width:180px;height:120px;padding:20px;margin:10px;border:2px solid #333}
+    .business,.login,.event,.price-card{max-width:350px;margin:auto;padding:25px;border-radius:15px;box-shadow:0 0 15px #aaa;background:white}
+    input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #aaa}
+
+    /* Module 3 */
+    .fixed-nav{position:fixed;top:0;left:0;width:100%;background:#111;color:white;padding:10px;z-index:10}
+    .top-btn{position:fixed;right:20px;bottom:20px;background:red;color:white;padding:15px;border-radius:50%}
+    .bell{position:relative;font-size:40px;display:inline-block}
+    .badge{position:absolute;top:-8px;right:-12px;background:red;color:white;border-radius:50%;font-size:14px;padding:4px 7px}
+    .overlay-box{position:relative;max-width:350px;margin:auto}
+    .overlay-text{position:absolute;top:40%;left:30%;background:red;color:white;padding:15px;font-size:28px}
+    .sticky-nav{position:sticky;top:40px;background:green;color:white;padding:15px}
+
+    /* Module 4 */
+    .flex-nav{display:flex;justify-content:space-between;align-items:center;background:#222;color:white;padding:15px}
+    .flex-nav ul{display:flex;gap:20px;list-style:none}
+    .service,.employee,.testimonial,.footer-col{width:220px;background:#eaf4ff;padding:20px;border-radius:10px;text-align:center}
+
+    /* Module 5 */
+    .grid-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+    .grid-gallery div,.dashboard-grid>*{background:#dff3ff;padding:30px;text-align:center}
+    .dashboard-grid{display:grid;grid-template-areas:"head head" "side main" "foot foot";gap:15px}
+    .g-head{grid-area:head}.g-side{grid-area:side}.g-main{grid-area:main}.g-foot{grid-area:foot}
+    .magazine{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+    .admin{display:grid;grid-template-columns:200px 1fr;gap:20px}
+
+    /* Module 6 */
+    .spinner{width:70px;height:70px;border:8px solid #ddd;border-top:8px solid blue;border-radius:50%;animation:spin 1s linear infinite;margin:auto}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .ball{width:60px;height:60px;background:red;border-radius:50%;animation:bounce 1s infinite alternate;margin:auto}
+    @keyframes bounce{to{transform:translateY(-80px)}}
+    .logo-rotate{font-size:50px;animation:spin 2s linear infinite;text-align:center}
+    .progress{height:25px;background:#ddd;border-radius:20px;overflow:hidden}
+    .progress div{height:100%;background:green;animation:load 3s infinite}
+    @keyframes load{from{width:0}to{width:100%}}
+    .typing{width:22ch;overflow:hidden;white-space:nowrap;border-right:3px solid black;animation:type 4s steps(22) infinite}
+    @keyframes type{from{width:0}to{width:22ch}}
+
+    /* Module 7 */
+    .zoom:hover{transform:scale(1.2);transition:.5s}
+    .rotate-card:hover{transform:rotate(10deg);transition:.5s}
+    .flip{width:250px;height:180px;perspective:1000px;margin:auto}
+    .flip-inner{position:relative;width:100%;height:100%;transition:.6s;transform-style:preserve-3d}
+    .flip:hover .flip-inner{transform:rotateY(180deg)}
+    .front,.back{position:absolute;width:100%;height:100%;backface-visibility:hidden;background:#ddd;padding:30px;text-align:center}
+    .back{transform:rotateY(180deg);background:#0b3d91;color:white}
+
+    /* Module 9 */
+    a:hover{color:red}
+    a:active{color:green}
+    a:visited{color:purple}
+    .custom-btn{position:relative;padding:15px 30px;background:#111;color:white}
+    .custom-btn::before{content:"★ ";color:gold}
+    .custom-btn::after{content:" ★";color:gold}
+    .first-letter::first-letter{font-size:45px;color:red}
+    .first-line::first-line{color:blue;font-weight:bold}
+    .check input{display:none}
+    .check span::before{content:"☐ ";font-size:25px}
+    .check input:checked + span::before{content:"☑ ";color:green}
+
+    @media(max-width:900px){
+      .grid-gallery{grid-template-columns:repeat(2,1fr)}
+      .magazine,.admin{grid-template-columns:1fr}
+    }
+    @media(max-width:600px){
+      .flex-nav{flex-direction:column}
+      .flex-nav ul{flex-direction:column}
+      .grid-gallery{grid-template-columns:1fr}
+      .dashboard-grid{grid-template-areas:"head" "side" "main" "foot"}
+    }
+  </style>
+</head>
+<body>
+
+<div class="fixed-nav">Task 11: Fixed Navigation Bar</div>
+
+<section>
+  <h1>Task 1: Student Profile Page</h1>
+  <div class="profile card">
+    <img src="https://via.placeholder.com/150">
+    <h2>Subhash</h2>
+    <p>Roll No: 101</p>
+    <p>Department: AI & ML</p>
+    <p>College: MITS</p>
+  </div>
+</section>
+
+<section class="resume">
+  <h1>Task 2: Online Resume</h1>
+  <div><h2>About</h2><p>I am a Python Full Stack student.</p></div>
+  <div><h2>Education</h2><p>B.Tech AI & ML</p></div>
+  <div><h2>Skills</h2><p>HTML, CSS, Python, SQL</p></div>
+  <div><h2>Projects</h2><p>GHG Emission Prediction</p></div>
+  <div><h2>Contact</h2><p>subhash@example.com</p></div>
+</section>
+
+<section>
+  <h1>Task 3: Restaurant Menu</h1>
+  <h2>Starters</h2>
+  <div class="menu-item">Paneer Tikka - ₹180</div>
+  <div class="menu-item">Veg Soup - ₹120</div>
+</section>
+
+<section>
+  <h1>Task 4: Product Card</h1>
+  <div class="product card">
+    <img src="https://via.placeholder.com/250">
+    <h2>Smart Watch</h2>
+    <p>₹1999</p>
+    <p>⭐⭐⭐⭐</p>
+    <button class="btn">Add to Cart</button>
+  </div>
+</section>
+
+<section>
+  <h1>Task 5: College Notice Board</h1>
+  <div class="notice urgent">Exam Fee Last Date - 26 Jun 2026</div>
+  <div class="notice">Library books must be returned this week.</div>
+</section>
+
+<section>
+  <h1>Tasks 6–10: Box Model Cards</h1>
+  <div class="info-container">
+    <div class="info-card">Info 1</div>
+    <div class="info-card">Info 2</div>
+    <div class="info-card">Info 3</div>
+    <div class="info-card">Info 4</div>
+    <div class="info-card">Info 5</div>
+  </div>
+
+  <div class="business">
+    <h2>Business Card</h2>
+    <p>Logo | Subhash</p>
+    <p>Full Stack Developer</p>
+    <p>9876543210</p>
+  </div><br>
+
+  <div class="login">
+    <h2>Login Form</h2>
+    <input placeholder="Username">
+    <input placeholder="Password">
+    <button class="btn">Login</button>
+  </div><br>
+
+  <div class="event">
+    <h2>Event Invitation</h2>
+    <p>Date: 26 Jun 2026</p>
+    <p>Time: 10 AM</p>
+    <p>Venue: Auditorium</p>
+    <button class="btn">RSVP</button>
+  </div><br>
+
+  <div class="price-card">
+    <h2>Basic Plan</h2>
+    <p>₹499/month</p>
+    <p>HTML, CSS, JS</p>
+    <button class="btn">Buy</button>
+  </div>
+</section>
+
+<section>
+  <h1>Tasks 12–15: Position</h1>
+  <a class="top-btn" href="#">↑</a>
+
+  <div class="bell">🔔<span class="badge">9</span></div>
+
+  <div class="overlay-box">
+    <img src="https://via.placeholder.com/350x200">
+    <div class="overlay-text">SALE 50%</div>
+  </div>
+
+  <div class="sticky-nav">Task 15: Sticky Navigation Bar</div>
+  <p>Scroll page to see sticky nav effect.</p>
+</section>
+
+<section>
+  <h1>Tasks 16–20: Flexbox</h1>
+  <div class="flex-nav">
+    <h2>Logo</h2>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+      <li>Login</li>
+    </ul>
+  </div>
+
+  <h2>Services</h2>
+  <div class="services">
+    <div class="service">Web Design</div>
+    <div class="service">Python</div>
+    <div class="service">SQL</div>
+    <div class="service">React</div>
+  </div>
+
+  <h2>Employees</h2>
+  <div class="employees">
+    <div class="employee">Subhash<br>Developer<br>mail@example.com</div>
+    <div class="employee">Rahul<br>Designer<br>mail@example.com</div>
+  </div>
+
+  <h2>Testimonials</h2>
+  <div class="testimonials">
+    <div class="testimonial">Good!</div>
+    <div class="testimonial">Excellent!</div>
+    <div class="testimonial">Super!</div>
+    <div class="testimonial">Nice!</div>
+    <div class="testimonial">Best!</div>
+    <div class="testimonial">Helpful!</div>
+  </div>
+
+  <h2>Footer</h2>
+  <div class="footer">
+    <div class="footer-col">About</div>
+    <div class="footer-col">Quick Links</div>
+    <div class="footer-col">Contact</div>
+    <div class="footer-col">Social Media</div>
+  </div>
+</section>
+
+<section>
+  <h1>Tasks 21–25: CSS Grid</h1>
+
+  <h2>Photo Gallery</h2>
+  <div class="grid-gallery">
+    <div>Photo 1</div><div>Photo 2</div><div>Photo 3</div><div>Photo 4</div>
+  </div>
+
+  <h2>Dashboard</h2>
+  <div class="dashboard-grid">
+    <div class="g-head">Header</div>
+    <div class="g-side">Sidebar</div>
+    <div class="g-main">Main Content</div>
+    <div class="g-foot">Footer</div>
+  </div>
+
+  <h2>Magazine Layout</h2>
+  <div class="magazine">
+    <div class="card">Featured Article</div>
+    <div class="card">Small Articles</div>
+  </div>
+
+  <h2>Student Dashboard</h2>
+  <div class="grid-gallery">
+    <div>Attendance</div>
+    <div>Marks</div>
+    <div>Assignments</div>
+    <div>Notifications</div>
+  </div>
+
+  <h2>Admin Panel</h2>
+  <div class="admin">
+    <div class="card">Admin Sidebar</div>
+    <div class="card">Admin Main Panel</div>
+  </div>
+</section>
+
+<section>
+  <h1>Tasks 26–30: CSS Animation</h1>
+  <h2>Loading Spinner</h2>
+  <div class="spinner"></div>
+
+  <h2>Bouncing Ball</h2>
+  <div class="ball"></div>
+
+  <h2>Rotating Logo</h2>
+  <div class="logo-rotate">⚙️</div>
+
+  <h2>Progress Bar</h2>
+  <div class="progress"><div></div></div>
+
+  <h2>Typing Effect</h2>
+  <h2 class="typing">Learning CSS Animation</h2>
+</section>
+
+<section>
+  <h1>Tasks 31–35: Transform & Transition</h1>
+
+  <h2>Image Zoom</h2>
+  <img class="zoom" src="https://via.placeholder.com/250">
+
+  <h2>Rotating Card</h2>
+  <div class="card rotate-card">Hover to Rotate</div>
+
+  <h2>Button Hover Animation</h2>
+  <button class="btn">Hover Me</button>
+
+  <h2>Flipping Product Card</h2>
+  <div class="flip">
+    <div class="flip-inner">
+      <div class="front">Product Image</div>
+      <div class="back">Product Details</div>
+    </div>
+  </div>
+
+  <h2>Smooth Image Gallery</h2>
+  <div class="gallery">
+    <img class="zoom" src="https://via.placeholder.com/150">
+    <img class="zoom" src="https://via.placeholder.com/150">
+    <img class="zoom" src="https://via.placeholder.com/150">
+  </div>
+</section>
+
+<section>
+  <h1>Tasks 36–40: Media Queries</h1>
+  <p>Resize the browser to test responsive login page, product gallery, portfolio, college website, and admin dashboard.</p>
+
+  <div class="login">
+    <h2>Responsive Login</h2>
+    <input placeholder="Email">
+    <input placeholder="Password">
+    <button class="btn">Login</button>
+  </div>
+
+  <div class="grid-gallery">
+    <div>Product 1</div>
+    <div>Product 2</div>
+    <div>Product 3</div>
+    <div>Product 4</div>
+    <div>Product 5</div>
+  </div>
+</section>
+
+<section>
+  <h1>Tasks 41–45: Pseudo Classes & Elements</h1>
+
+  <h2>Navigation Links</h2>
+  <a href="#">Home</a> |
+  <a href="#">About</a> |
+  <a href="#">Contact</a>
+
+  <h2>Custom Button</h2>
+  <button class="custom-btn">Click</button>
+
+  <h2>First Letter</h2>
+  <p class="first-letter">css is used to style webpages.</p>
+
+  <h2>First Line</h2>
+  <p class="first-line">
+    This is the first line of the paragraph.  
+    This is the second line of the paragraph.
+  </p>
+
+  <h2>Custom Checkbox</h2>
+  <label class="check">
+    <input type="checkbox">
+    <span>Accept Terms</span>
+  </label>
+</section>
+
+</body>
+</html>
