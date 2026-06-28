@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WFH-T3 Responsive Tasks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: lightblue;
+    }
+
+    section {
+      padding: 30px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    h1 {
+      font-size: 48px;
+    }
+
+    .para {
+      width: 70%;
+      font-size: 18px;
+    }
+
+    .boxes,
+    .cards,
+    .pricing,
+    .footer,
+    .gallery,
+    .courses,
+    .faculty,
+    .testimonials {
+      display: grid;
+      gap: 20px;
+    }
+
+    .boxes {
+      display: flex;
+    }
+
+    .box,
+    .card,
+    .plan,
+    .footer-box,
+    .course,
+    .faculty-card,
+    .testimonial {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .responsive-img {
+      width: 300px;
+    }
+
+    nav {
+      background: #222;
+      padding: 15px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu-btn {
+      display: none;
+      background: orange;
+      border: none;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .cards {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .dashboard {
+      display: flex;
+      gap: 20px;
+    }
+
+    .sidebar {
+      width: 25%;
+      background: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .main {
+      width: 75%;
+      background: white;
+      padding: 20px;
+    }
+
+    .pricing {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .responsive-heading {
+      font-size: 44px;
+    }
+
+    .responsive-text {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      width: 200px;
+      height: 60px;
+      background: royalblue;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .login-form {
+      width: 400px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+    }
+
+    .footer {
+      grid-template-columns: repeat(4, 1fr);
+      background: #111;
+      color: white;
+    }
+
+    .profile-card {
+      display: flex;
+      gap: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .profile-card img {
+      width: 150px;
+      border-radius: 50%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .hero {
+      background: navy;
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .courses {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .faculty {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonials {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+      body {
+        background: lightgreen;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .para {
+        width: 90%;
+      }
+
+      .logo {
+        font-size: 30px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .pricing {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .login-form {
+        width: 300px;
+      }
+
+      .footer {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .courses,
+      .faculty,
+      .testimonials {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .responsive-heading {
+        font-size: 34px;
+      }
+
+      .responsive-text {
+        font-size: 18px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      body {
+        background: lightgray;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .para {
+        width: 100%;
+      }
+
+      .boxes {
+        flex-direction: column;
+      }
+
+      .responsive-img {
+        display: none;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hide-mobile-menu {
+        display: none;
+      }
+
+      .logo {
+        font-size: 22px;
+      }
+
+      .header {
+        flex-direction: column;
+      }
+
+      .cards,
+      .pricing,
+      .footer,
+      .courses,
+      .faculty,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dashboard {
+        flex-direction: column;
+      }
+
+      .sidebar,
+      .main {
+        width: 100%;
+      }
+
+      .responsive-heading {
+        font-size: 26px;
+      }
+
+      .responsive-text {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .btn {
+        width: 100%;
+        height: 50px;
+      }
+
+      .login-form {
+        width: 95%;
+      }
+
+      .profile-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        background: white;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      td {
+        text-align: left;
+        border: none;
+        border-bottom: 1px solid #ddd;
+      }
+
+      td::before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section>
+    <h1>Task 1: Responsive Heading</h1>
+  </section>
+
+  <section>
+    <h1>Task 2: Background Color Changes</h1>
+  </section>
+
+  <section>
+    <p class="para">
+      Task 3: This paragraph changes width on desktop, tablet, and mobile screens.
+    </p>
+  </section>
+
+  <section>
+    <h1>Task 4: Three Boxes</h1>
+    <div class="boxes">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Task 5: Hide Image on Mobile</h1>
+    <img class="responsive-img" src="https://via.placeholder.com/300" alt="Sample Image">
+  </section>
+
+  <section>
+    <h1>Task 6 & 7: Responsive Navigation</h1>
+    <button class="menu-btn">Menu</button>
+    <nav>
+      <ul class="hide-mobile-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section>
+    <h1>Task 8 & 9: Responsive Header</h1>
+    <div class="header">
+      <div class="logo">College Logo</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Faculty</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section>
+    <h1>Task 10: Four Cards</h1>
+    <div class="cards">
+      <div class="card">Card 1</div>
+      <div class="card">Card 2</div>
+      <div class="card">Card 3</div>
+      <div class="card">Card 4</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Task 11: Photo Gallery</h1>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/200">
+      <img src="https://via.placeholder.com/200">
+      <img src="https://via.placeholder.com/200">
+      <img src="https://via.placeholder.com/200">
+      <img src="https://via.placeholder.com/200">
+    </div>
+  </section>
+
+  <section>
+    <h1>Task 12: Dashboard</h1>
+    <div class="dashboard">
+      <div class="sidebar">Sidebar</div>
+      <div class="main">Main Content</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Task 13: Pricing Section</h1>
+    <div class="pricing">
+      <div class="plan">Basic Plan</div>
+      <div class="plan">Standard Plan</div>
+      <div class="plan">Premium Plan</div>
+    </div>
+  </section>
+
+  <section>
+    <h1 class="responsive-heading">Task 14: Responsive Typography</h1>
+    <p class="responsive-text">
+      This paragraph changes font size and line height based on the screen size.
+    </p>
+  </section>
+
+  <section>
+    <h1>Task 15: Responsive Button</h1>
+    <button class="btn">Click Me</button>
+  </section>
+
+  <section>
+    <h1>Task 16: Login Form</h1>
+    <form class="login-form">
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button class="btn">Login</button>
+    </form>
+  </section>
+
+  <section>
+    <h1>Task 17: Responsive Footer</h1>
+    <div class="footer">
+      <div class="footer-box">About</div>
+      <div class="footer-box">Courses</div>
+      <div class="footer-box">Support</div>
+      <div class="footer-box">Contact</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Task 18: Profile Card</h1>
+    <div class="profile-card">
+      <img src="https://via.placeholder.com/150">
+      <div>
+        <h2>Subhash</h2>
+        <p>Python Full Stack Developer</p>
+        <p>AI & ML Student</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Task 19: Responsive Table</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Name">Subhash</td>
+          <td data-label="Department">AI & ML</td>
+          <td data-label="Marks">90</td>
+        </tr>
+        <tr>
+          <td data-label="Name">Rahul</td>
+          <td data-label="Department">CSE</td>
+          <td data-label="Marks">85</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="hero">
+    <h1>Task 20: Responsive College Website</h1>
+    <p>Welcome to Future Tech College</p>
+  </section>
+
+  <section>
+    <h1>About</h1>
+    <p class="para">
+      Future Tech College provides high-quality education in Computer Science, AI, ML, and Full Stack Development.
+    </p>
+  </section>
+
+  <section>
+    <h1>Courses</h1>
+    <div class="courses">
+      <div class="course">Python Full Stack</div>
+      <div class="course">Artificial Intelligence</div>
+      <div class="course">Data Science</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Faculty</h1>
+    <div class="faculty">
+      <div class="faculty-card">Dr. Sharma</div>
+      <div class="faculty-card">Prof. Kumar</div>
+      <div class="faculty-card">Ms. Priya</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Student Testimonials</h1>
+    <div class="testimonials">
+      <div class="testimonial">Excellent college!</div>
+      <div class="testimonial">Great faculty!</div>
+      <div class="testimonial">Best learning experience!</div>
+    </div>
+  </section>
+
+  <section>
+    <h1>Contact Form</h1>
+    <form class="login-form">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <textarea placeholder="Message"></textarea>
+      <button class="btn">Submit</button>
+    </form>
+  </section>
+
+</body>
+</html>
